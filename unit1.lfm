@@ -1,0 +1,115 @@
+object Form1: TForm1
+  Left = 378
+  Height = 372
+  Top = 186
+  Width = 513
+  Caption = 'Form1'
+  ClientHeight = 372
+  ClientWidth = 513
+  DesignTimePPI = 120
+  LCLVersion = '3.0.0.1'
+  object Edit1: TEdit
+    Left = 8
+    Height = 28
+    Top = 8
+    Width = 495
+    Anchors = [akTop, akLeft, akRight]
+    TabOrder = 0
+    TextHint = 'Your original project path here'
+  end
+  object Button1: TButton
+    Left = 375
+    Height = 31
+    Top = 48
+    Width = 128
+    Anchors = [akTop, akRight]
+    Caption = 'Minify vendor'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Memo1: TMemo
+    Left = 8
+    Height = 198
+    Top = 128
+    Width = 491
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Lines.Strings = (
+      'Tested on slim4'
+      'Type source path in Edit1,'
+      'type expected output path in Edit2,'
+      'then click "to new dir",'
+      'minified php project will be in the output path,'
+      'original project won''t be changed.'
+    )
+    ScrollBars = ssAutoVertical
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 268
+    Height = 31
+    Top = 48
+    Width = 102
+    Anchors = [akTop, akRight]
+    Caption = 'Minify all'
+    OnClick = Button2Click
+    TabOrder = 3
+  end
+  object Button3: TButton
+    Left = 156
+    Height = 31
+    Top = 48
+    Width = 110
+    Anchors = [akTop, akRight]
+    Caption = 'Vendor2phar'
+    OnClick = Button3Click
+    TabOrder = 4
+  end
+  object Button4: TButton
+    Left = 28
+    Height = 31
+    Top = 48
+    Width = 126
+    Anchors = [akTop, akRight]
+    Caption = 'Delete vendor'
+    OnClick = Button4Click
+    TabOrder = 5
+  end
+  object Button5: TButton
+    Left = 404
+    Height = 31
+    Top = 329
+    Width = 94
+    Anchors = [akRight, akBottom]
+    Caption = 'Slim4'
+    OnClick = Button5Click
+    TabOrder = 6
+  end
+  object Edit2: TEdit
+    Left = 8
+    Height = 28
+    Top = 88
+    Width = 535
+    TabOrder = 7
+    TextHint = 'Output path here'
+  end
+  object Button6: TButton
+    Left = 308
+    Height = 31
+    Top = 329
+    Width = 94
+    Anchors = [akRight, akBottom]
+    Caption = 'to new dir'
+    OnClick = Button6Click
+    TabOrder = 8
+  end
+  object Button7: TButton
+    Left = 164
+    Height = 31
+    Top = 329
+    Width = 142
+    Anchors = [akRight, akBottom]
+    Caption = 'delete output dir'
+    OnClick = Button7Click
+    TabOrder = 9
+  end
+end
