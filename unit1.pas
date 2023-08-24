@@ -17,23 +17,15 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
     Button5: TButton;
-    Button6: TButton;
-    Button7: TButton;
+    btnGenerate: TButton;
+    btnDelete: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
     Memo1: TMemo;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
-    procedure Button5Click(Sender: TObject);
-    procedure Button6Click(Sender: TObject);
-    procedure Button7Click(Sender: TObject);
+    procedure btnGenerateClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -243,20 +235,6 @@ end;
 
 { TForm1 }
 
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  CleanDirUnnecessary(Edit1.Caption + PathDelim + 'vendor');
-  CleanFileUnnecessary(Edit1.Caption + PathDelim + 'vendor');
-  MinifyFileMisc(Edit1.Caption + PathDelim + 'vendor');
-end;
-
-procedure TForm1.Button2Click(Sender: TObject);
-begin
-  CleanDirUnnecessary(Edit1.Caption);
-  CleanFileUnnecessary(Edit1.Caption);
-  MinifyFileMisc(Edit1.Caption);
-end;
-
 procedure ToPhar(SrcPath, FilePath: string);
 var
   output: string;
@@ -267,26 +245,7 @@ begin
 
 end;
 
-procedure TForm1.Button3Click(Sender: TObject);
-begin
-  DeleteFile(Edit1.Caption + PathDelim + 'autoload.phar');
-  ToPhar(Edit1.Caption + PathDelim + 'vendor', Edit1.Caption +
-    PathDelim + 'autoload.phar');
-end;
-
-procedure TForm1.Button4Click(Sender: TObject);
-begin
-  DeleteDirectoryCMD(Edit1.Caption + PathDelim + 'vendor');
-end;
-
-procedure TForm1.Button5Click(Sender: TObject);
-begin
-  Button2Click(Self);
-  Button3Click(Self);
-  Button4Click(Self);
-end;
-
-procedure TForm1.Button6Click(Sender: TObject);
+procedure TForm1.btnGenerateClick(Sender: TObject);
 begin
   CopyNecessaryFile(Edit1.Caption, Edit2.Caption);
   MinifyDirectoryPHP(Edit2.Caption);
@@ -296,9 +255,14 @@ begin
   ReplaceAutoloadPath(Edit2.Caption);
 end;
 
-procedure TForm1.Button7Click(Sender: TObject);
+procedure TForm1.btnDeleteClick(Sender: TObject);
 begin
   DeleteDirectoryCMD(Edit2.Caption);
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  Edit1.Caption:=GetCurrentDir;
 end;
 
 end.
